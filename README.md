@@ -1,5 +1,3 @@
-
-
 CMN224 Software Engineering Portfolio
 
 
@@ -27,4 +25,6 @@ Institution: Western Pacific University
 Location: Ialibu, Southern Highlands Province, Papua New Guinea
 
 
+
+Portfolio Start Date: 28 July 2026
 
