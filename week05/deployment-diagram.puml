@@ -1,0 +1,45 @@
+@startuml
+
+node "Office Laptop" {
+    [Fee Tracking Application]
+    [Authentication Module]
+    [Reporting Module]
+
+    database "SQLite Database" {
+        [Student Records]
+        [Payment Records]
+        [Receipts]
+    }
+}
+
+node "Network Printer" {
+    [Receipt Printing Service]
+}
+
+node "Bursar Workstation" {
+    [Web Browser]
+}
+
+node "Office Assistant Workstation" {
+    [Web Browser]
+}
+
+node "Head Teacher Workstation" {
+    [Report Viewer]
+}
+
+[Bursar Workstation] --> [Fee Tracking Application] : Local Network/WiFi
+[Office Assistant Workstation] --> [Fee Tracking Application] : Local Network/WiFi
+[Head Teacher Workstation] --> [Reporting Module] : Local Network/WiFi
+
+[Fee Tracking Application] --> [Receipt Printing Service] : Print Jobs
+
+note right of "Office Laptop"
+Data is stored locally.
+System remains operational
+during internet outages.
+Automatic backups reduce
+risk from power failures.
+end note
+
+@enduml

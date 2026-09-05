@@ -1,0 +1,37 @@
+@startuml
+
+package "User Interface" {
+[Login Form]
+[Student Management Form]
+[Payment Form]
+[Reporting Form]
+}
+
+package "Application Logic" {
+[Authentication Service]
+[Fee Management Service]
+[Reporting Service]
+}
+
+package "Data Access" {
+[Student Repository]
+[Payment Repository]
+[Report Repository]
+}
+
+database "Fee Management Database"
+
+[Login Form] --> [Authentication Service]
+[Student Management Form] --> [Fee Management Service]
+[Payment Form] --> [Fee Management Service]
+[Reporting Form] --> [Reporting Service]
+
+[Authentication Service] --> [Student Repository]
+[Fee Management Service] --> [Payment Repository]
+[Reporting Service] --> [Report Repository]
+
+[Student Repository] --> "Fee Management Database"
+[Payment Repository] --> "Fee Management Database"
+[Report Repository] --> "Fee Management Database"
+
+@enduml
