@@ -1,0 +1,53 @@
+@startuml
+left to right direction
+
+actor Bursar
+actor "Office Assistants" as OfficeAssistants
+actor "Head Teacher" as HeadTeacher
+actor "School Board" as SchoolBoard
+actor "Parents/Guardians" as Parents
+actor Students
+
+rectangle "School Fee Management System" {
+
+  usecase "Record Payment" as UC1
+  usecase "Track Student Balance" as UC2
+  usecase "Generate Receipts" as UC3
+  usecase "Generate Financial Reports" as UC4
+
+  usecase "Search Student Records" as UC5
+  usecase "Update Student Records" as UC6
+  usecase "Maintain Student Records" as UC7
+
+  usecase "View Fee Collection Summary" as UC8
+  usecase "View Arrears Report" as UC9
+
+  usecase "View Term Performance Summary" as UC10
+
+  usecase "View Payment History" as UC11
+  usecase "Receive Accurate Receipts" as UC12
+
+  usecase "View Fee Records" as UC13
+}
+
+Bursar --> UC1
+Bursar --> UC2
+Bursar --> UC3
+Bursar --> UC4
+
+OfficeAssistants --> UC5
+OfficeAssistants --> UC6
+OfficeAssistants --> UC7
+
+HeadTeacher --> UC8
+HeadTeacher --> UC9
+
+SchoolBoard --> UC4
+SchoolBoard --> UC10
+
+Parents --> UC11
+Parents --> UC12
+
+Students --> UC13
+
+@enduml
