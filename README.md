@@ -6,7 +6,7 @@ Student Name: Yop Hulda
 Student ID: 00239  
 Institution: Western Pacific University  
 Location: Ialibu, Southern Highlands Province, Papua New Guinea  
-Unit Code: CMN224 / CMP224 Software Engineering  
+Unit Code: CMN224 Software Engineering  
 Portfolio Start Date: 28 July 2026
 
 
