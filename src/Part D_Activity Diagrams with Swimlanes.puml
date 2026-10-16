@@ -1,0 +1,39 @@
+@startuml
+
+|Bursar Laptop|
+
+start
+
+:Record payment;
+
+:Save transaction to local database;
+
+if (Internet and Power Available?) then (Yes)
+
+    :Create sync request;
+
+    |Central Database Server|
+
+    :Receive payment data;
+
+    :Check for duplicate records;
+
+    if (Duplicate Found?) then (Yes)
+        :Ignore duplicate record;
+    else (No)
+        :Update payment database;
+        :Update student balance;
+    endif
+
+    :Confirm synchronization;
+
+else (No)
+
+    :Queue transaction locally;
+    :Continue offline operation;
+
+endif
+
+stop
+
+@enduml

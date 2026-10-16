@@ -1,0 +1,82 @@
+@startuml
+
+class Student {
+    +studentID : String
+    +name : String
+    +grade : String
+    +balance : Double
+    +viewFeeRecords()
+}
+
+class ParentGuardian {
+    +parentID : String
+    +name : String
+    +contactNo : String
+    +viewPaymentHistory()
+    +receiveReceipt()
+}
+
+class Payment {
+    +paymentID : String
+    +amount : Double
+    +paymentDate : Date
+    +recordPayment()
+}
+
+class Receipt {
+    +receiptID : String
+    +issueDate : Date
+    +generateReceipt()
+}
+
+class FinancialReport {
+    +reportID : String
+    +reportType : String
+    +generateReport()
+    +viewTermPerformance()
+    +viewCollectionSummary()
+    +viewArrearsReport()
+}
+
+class Bursar {
+    +recordPayment()
+    +trackStudentBalance()
+    +generateReceipts()
+    +generateFinancialReports()
+}
+
+class OfficeAssistant {
+    +searchStudentRecord()
+    +updateStudentRecord()
+    +maintainStudentRecord()
+}
+
+class HeadTeacher {
+    +viewFeeCollectionSummary()
+    +viewArrearsReport()
+}
+
+class SchoolBoard {
+    +viewTermPerformanceSummary()
+    +reviewFinancialReport()
+}
+
+Student "1" -- "0..*" Payment : makes
+Payment "1" -- "1" Receipt : generates
+ParentGuardian "1" -- "0..*" Student : responsible for
+ParentGuardian "1" -- "0..*" Receipt : receives
+
+Bursar ..> Payment
+Bursar ..> Receipt
+Bursar ..> FinancialReport
+
+OfficeAssistant ..> Student
+
+HeadTeacher ..> FinancialReport
+
+SchoolBoard ..> FinancialReport
+
+FinancialReport ..> Student
+FinancialReport ..> Payment
+
+@enduml

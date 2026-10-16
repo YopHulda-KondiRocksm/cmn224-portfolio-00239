@@ -1,0 +1,25 @@
+@startuml
+
+[*] --> Pending : fee payment initiated
+
+Pending --> Recorded : payment entered
+
+Recorded --> Verified : verify payment
+
+Verified --> Receipted : generate receipt
+
+Verified --> Rejected : [payment details invalid]
+
+Receipted --> Reconciled : reconcile transaction
+
+Reconciled --> Refunded : refund request approved
+
+Reconciled --> Completed : end of term review
+
+Rejected --> [*]
+
+Refunded --> [*]
+
+Completed --> [*]
+
+@enduml
